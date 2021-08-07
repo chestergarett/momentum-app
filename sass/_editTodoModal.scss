@@ -1,0 +1,68 @@
+.todo-overlay{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9));
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100vw);
+    transition: transform 250ms;
+    z-index: 999;
+  }
+  
+  .todo-modal{
+    min-width: 50vw;
+    height: 50vh;
+    border: 3px solid $color-primary-dark;
+    background-color: $color-modal;
+    border-radius: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    position: relative;
+  }
+  
+  
+.slidedIntoView {
+    transform: translateX(0);
+    transition: transform 650ms;
+}
+  
+.todo-modal td{
+    padding: 10px;
+}
+
+.todo-modal input{
+    width: 100%;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid $color-placeholder;
+    padding: 3px;
+}
+
+.todo-modal .close{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 60px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: black;
+    border: none;
+    background: transparent;
+}
+
+#changeBtn{
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+    cursor: pointer;
+}

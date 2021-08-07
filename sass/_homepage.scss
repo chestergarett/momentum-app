@@ -1,0 +1,160 @@
+//todo list left pane
+.strike {
+    text-decoration: line-through;
+  }
+
+#todoTable{
+    border: 1px solid $color-primary;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $color-modal;
+    width: 100%;
+    overflow: scroll;
+    height: 30px;
+  }
+
+#sortBtn{
+  cursor: pointer;
+}
+
+.section-todo-block{
+  background-image: linear-gradient(to right,$color-primary,$color-primary-light);
+  padding: 30px;
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  height: 85vh;
+  grid-row: 2/span 2;
+  overflow-y: scroll;
+  mask-image: linear-gradient(to top, transparent, black),
+                linear-gradient(to left, transparent 17px, black 17px);
+  mask-size: 100% 20000px;
+  mask-position: left bottom;
+  -webkit-mask-image: linear-gradient(to top, transparent, black),
+                        linear-gradient(to left, transparent 17px, black 17px);
+  -webkit-mask-size: 100% 20000px;
+  -webkit-mask-position: left bottom;
+  transition: mask-position 0.3s, -webkit-mask-position 0.3s;
+}
+
+.section-todo-block:hover{
+  -webkit-mask-position: left top;
+}
+
+#todoTable tr{
+  padding: 4%;
+}
+
+#todoTable td{
+  padding: 2%;
+}
+
+#todoTable th{
+  text-align: left;
+}
+
+datalist{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+select{
+  font-family: 'Josefin Sans', sans-serif;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.shortlist{
+  position: relative;
+  cursor: pointer;
+}
+
+#shortlistBtn{
+  opacity: 0;
+  position: absolute;
+  left: 65px;
+}
+
+//quote list upper right pane
+.section-calendar-quote{
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(105deg, 
+      rgba($color-white, .7) 0%,
+      rgba($color-white, .9) 65%,
+      transparent 80%) ,
+      url(../images/IMG_9748.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: absolute;
+  width: 57%;
+  left: 42%;
+  top: 10%;
+  height: 85vh;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+
+.random-quote-section{
+  order: 0;
+  display: flex;
+  flex-wrap: wrap;
+  grid-row: 2;
+  grid-column: 2;
+  /*background-image: linear-gradient(105deg, 
+      rgba($color-white, .7) 0%,
+      rgba($color-white, .7) 45%,
+      transparent 50%) ,
+      url(../images/990352.jpg);*/
+  background-size: cover;
+  border-radius: 20px;
+  /*box-shadow: 0 1.5rem 4rem rgba($color-black, .2);*/
+  margin-top: 15px;
+  padding: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: justify;
+  position: relative;
+  cursor: pointer;
+  height: 130px;
+}
+
+.random-quote-div{
+  width: 50%;
+  margin-top: 10px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.author{
+  margin-top: 8px;
+  font-style: italic;
+  align-self: flex-end;
+}
+
+.random-quote-div:before{
+  content: '\201C';
+  font-size: 300%;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 5px;
+}
+
+footer{
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid $color-primary;
+  padding: 4px;
+}
+
+
+

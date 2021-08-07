@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    display: grid;
+    grid-template-rows: 7vh 20vh 73vh;
+    grid-template-columns: 40vw 1fr;
+    grid-gap: 10px;
+    position: relative;
+}
+
+
+::selection {
+    background-color: $color-primary-dark;
+    color: $color-white;
+}
+
+::placeholder{
+    color: $color-placeholder;
+}
+
+.material-icons{
+    cursor: pointer;
+}
+
+.modal-buttons{
+    border: 1px solid #2C3E50;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #2C3E50;
+    color: white;
+    padding: 3px;
+}

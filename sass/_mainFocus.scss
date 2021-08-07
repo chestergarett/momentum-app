@@ -1,0 +1,74 @@
+.main-focus-modal{
+    background-color: #2C3E50;
+    border-radius: 50%;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 1%;
+    right: 3%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #2C3E50;
+    cursor: pointer;
+}
+
+.main-focus-modal span{
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+}
+
+.main-focus-div{
+    display: none;
+    flex-direction: column;
+    color: $color-white;
+}
+
+.main-focus-list{
+    display:flex;
+    flex-direction: column;
+    padding: 2%;
+    margin: 2%;
+}
+
+#mainFocusList{
+    list-style-type: none;
+    padding: 2%;
+    margin-bottom: 1%;
+    background-color: #2C3E50;
+    position: fixed;
+    width: 20%;
+    height: 40%;
+    right: 4%;
+    bottom: 3%;
+    z-index: 999;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+    mask-size: 100% 20000px;
+    mask-position: left bottom;
+    -webkit-mask-image: linear-gradient(to top, transparent, black),
+                        linear-gradient(to left, transparent 17px, black 17px);
+    -webkit-mask-size: 100% 20000px;
+    -webkit-mask-position: left bottom;
+    transition: mask-position 0.3s, -webkit-mask-position 0.3s;
+}
+
+#mainFocusList:hover{
+    -webkit-mask-position: left top;
+}
+
+#mainFocusInput{
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $color-white;
+    color: white;
+    font-family: $main-font;
+}

@@ -1,0 +1,69 @@
+.quote-modal{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 25px;
+    z-index: 999;
+    background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.9));
+    border: 1px solid $color-primary-dark;
+}
+
+.quote-modal-div{
+    /*background-color: $color-modal;*/
+    background-image: linear-gradient(105deg, 
+      rgba($color-white, .7) 0%,
+      rgba($color-white, .7) 100%,
+      transparent 80%) ,
+      url(../images/IMG_9748.jpg);
+    border-radius: 10px;
+    width: 50%;
+    height: 40%;
+    display: flex;
+    left: 30%;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    padding-top: 25px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid $color-primary-dark;
+}
+
+.quote-modal-div .close{
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 60px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: black;
+}
+
+
+.quote-modal td{
+    padding: 10px;
+}
+
+.quote-modal input,textarea{
+    width: 100%;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid $color-placeholder;
+    padding: 3px;
+}
+
+.quote-modal button{
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 15%;
+    cursor: pointer;
+}
+
+#quoteInput, #authorInput{
+    border: none;
+}
+

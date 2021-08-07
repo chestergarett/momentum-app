@@ -1,0 +1,47 @@
+.section-calendar{
+  grid-row-start: 3;
+  grid-column-start: 2;
+  order: 1;
+}
+
+.todo-calendar{
+    display: flex;
+    width: 100%;
+    backdrop-filter: blur(12px);
+}
+
+#calendar{
+    width: 100%;
+    overflow-y: scroll;
+    height: 65vh;
+    mask-image: linear-gradient(to top, transparent, black),
+                linear-gradient(to left, transparent 17px, black 17px);
+    mask-size: 100% 20000px;
+    mask-position: left bottom;
+    -webkit-mask-image: linear-gradient(to top, transparent, black),
+                        linear-gradient(to left, transparent 17px, black 17px);
+    -webkit-mask-size: 100% 20000px;
+    -webkit-mask-position: left bottom;
+    transition: mask-position 0.3s, -webkit-mask-position 0.3s;
+}
+
+#calendar:hover{
+  -webkit-mask-position: left top;
+}
+
+
+#calendar ::-ms-input-placeholder{
+    color: #ed6a5e;
+  }
+  
+#calendar ::-webkit-input-placeholder{
+    color: #ed6a5e;
+  }
+  
+#calendar ::placeholder{
+    color: #ed6a5e;
+  }
+  
+#calendar input {
+    color:#a11e12;
+  }

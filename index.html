@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum App</title>
+    <link href='css/index.css' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="images/ikigai-logo.jpg">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js"></script>
+</head>
+<body onload=displayClock();>
+    <header id='header'>
+        <div id='header-logo-div'><img src='images/logo_photo.jpg'><span id='header-name'>Chester</span></div> <!---User Story 1, 3-->
+        <div id='header-icons'>
+            <div class='header-icon-divs' id='toggle-button'>
+                <ion-icon name="calendar-outline"></ion-icon>
+                <div class='tooltip-icons'>Toggle View</div>
+            </div>
+            <div class='header-icon-divs'>
+                <ion-icon name="add-circle-outline" id='add-to-do-display'></ion-icon>
+                <div class='tooltip-icons'>Add Tasks</div>
+            </div>
+            <div class='header-icon-divs'>
+                <ion-icon name="aperture-outline" id='add-quote-display'></ion-icon>
+                <div class='tooltip-icons'>Add Quotes</div>
+            </div>
+        </div>
+        <div id='header-datetime'>
+            <div id='header-date'></div> <!---User Story 2-->
+            <div id='header-time'></div> <!---User Story 2-->
+        </div>
+    </header>
+
+    <section class='name-modal'>
+        <div class='div-name-modal' id='div-name-modal'>
+            <input type='text' placeholder='enter name' class='name-modal-form' id='nameModal' required>
+            <div class='name-modal-label'>Press Enter</div>
+            <div class='close' id='nameModalClose'>+</div>
+        </div>
+    </section>
+
+    <section class='add-todo-modal'><!----User story 6-->
+            <div class='add-todo-modal-div'>
+                <table>
+                    <tr>
+                        <td><span class=>To-do: </span></td>
+                        <td><input type="text" placeholder="Enter new to-do" required></td>
+                    </tr>    
+                    <tr>
+                        <td><span>Category: </span></td>
+                        <td><input type="text" placeholder="Enter category" list="categoryList" required style="text-transform: uppercase">
+                        <datalist id="categoryList">
+                            <option value="Personal"></option>
+                            <option value="Work"></option>
+                        </datalist></td>
+                    </tr>
+                    <tr>
+                        <td><span>Start Date:</span></td>
+                        <td><input type="datetime-local" id="dateInput" required></td>
+                    </tr>
+                    <tr>
+                        <td><span>End Date:</span></td>
+                        <td><input type="datetime-local" id="timeInput" required></td>
+                    </tr>
+                </table>
+                <button id="addBtn" class='modal-buttons'>Add</button>
+                <div class='close' id='addToDoModalClose'>+</div>
+            </div>
+    </section>
+
+    <section class='quote-modal'><!----User story 7-->
+        <div class='quote-modal-div'>
+            <table>
+                <tr>
+                    <td><span>Add Quote</span></td>
+                    <td><textarea rows=4 id='quoteInput' required></textarea></td>
+                </tr>
+                <tr>
+                    <td><span>Author</span></td>
+                    <td><input type='text' id='authorInput' required></td>
+                </tr>
+            </table>
+            <button id="quote-addBtn" class='modal-buttons'>Add</button>
+            <div class='close' id='quoteModalClose'>+</div>
+        </div>
+
+    </section>
+
+    <section class='section-todo-block homepage'>
+        <table id="todoTable" class="todo-block"><!----User story 6-->
+            <tr>
+            <th style='width:20px; text-align: center;'><label for='shortlistBtn' class='shortlist' title='Sort pending'><ion-icon name="alert-outline"></ion-icon></label><input type="checkbox" id="shortlistBtn" title='Sort pending'></th>
+            <th style='width:120px'><span id='sortBtn' title='Sort earliest'>Start Date</span></th>
+            <th style='width:120px'>End Date</th>
+            <th>Tasks</th>
+            <th style='width:50px'>
+                <select id="categoryFilter">
+                </select>
+            </th>
+            <th style='width:20px'></th>
+            </tr>
+        </table>
+        </div>
+    </section>
+    
+    <section class='section-todo-overlay homepage'>
+        <div class="todo-overlay" id="todo-overlay">
+            <div class="todo-modal" id="todo-modal">
+            <div class="todo-input todo-block">
+            <form id="edit-form" action="" method="post">
+                <table>
+                    <tr>
+                        <td><span>To-do: </span></td>
+                        <td><input name='todoedittodo' type="text" placeholder="Enter new to-do" id="todo-edit-todo" required></td>
+                    </tr>
+                    <tr>
+                        <td><span>Category: </span></td>
+                        <td><input type="text" placeholder="Enter category" list="categoryList"  id="todo-edit-category" required></td>
+                        <datalist id="categoryList">
+                            <option value="Personal"></option>
+                            <option value="Work"></option>
+                        </datalist>
+                    </tr>
+                    <tr>    
+                        <td><span>Start Date:</span></td>
+                        <td><input type="datetime-local" id="todo-edit-date" required></td>
+                    </tr>
+                    <tr>
+                        <td><span>End Date</span></td>
+                        <td><input type="datetime-local" id="todo-edit-time" required></td>
+                    </tr>
+                    <tr>
+                        <td><span></span></td>
+                        <td><input type="submit" value="Save" id="changeBtn" class='modal-buttons'></td>
+                    </tr>
+                </table>
+                <button class="close" id="todo-modal-close-btn">+</button>
+            </form>
+            </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <section class='section-calendar-quote'>
+        <div class='section-calendar homepage'>
+            <div class="todo-calendar  todo-block">
+                <div id='calendar'></div>
+            </div>
+        </div>
+
+        <div class='random-quote-section homepage'><!---User story 5-->
+            <div class='random-quote-div'>
+                <div class='quote'>
+                    My formula for greatness in a human being is amor fati: that one wants nothing to be different, not forward, not backward, not in all eternity. Not merely bear what is necessary, still less conceal it… but love it.
+                </div>
+                <div class='author'>
+                    <span>Friedrich Nietzsche</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class='main-focus-section homepage'> <!----User story 4-->
+        <div class='main-focus-div'>
+            <div id='main-focus-list'>
+                <ul id='mainFocusList'>
+                    <li>Sleep for 8 hours today!</li>
+                    <input type='text' id='mainFocusInput' placeholder='add main focus for today'>
+                </ul>
+            </div>
+        </div>
+        <div class='main-focus-modal'>
+            <span><ion-icon name="star-outline"></ion-icon></span>
+        </div>
+    </section>
+    <footer>
+        <p>Copyright &copy; 2021 by Chester Garett. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/quote.js"></script>
+    <script src="js/main.js"></script>  
+    <script src="js/toggle.js"></script>  
+    <script src="js/focus.js"></script>  
+</body>
+</html>
